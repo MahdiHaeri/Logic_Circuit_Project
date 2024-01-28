@@ -3,8 +3,8 @@
 `define TWO      3'b010
 `define THREE    3'b011
 
-`define GO_RIGHT 6'b100000 
-`define GO_LEFT  6'b010000
+`define MOVE_RIGHT 6'b100000 
+`define MOVE_LEFT  6'b010000
 `define WAIT     6'b001000
 `define JUMP     6'b000100
 `define KICK     6'b000010
@@ -40,9 +40,9 @@ module RightPlayer (
 
     always @(posedge clk or negedge rst_n) begin
         // apply movement input
-        if (right_player_input == `GO_RIGHT && right_player_location != `TWO) begin
+        if (right_player_input == `MOVE_RIGHT && right_player_location != `TWO) begin
             right_player_location <= right_player_location + `ONE;
-        end else if (right_player_input == `GO_LEFT && right_player_location != `ZERO) begin
+        end else if (right_player_input == `MOVE_LEFT && right_player_location != `ZERO) begin
             right_player_location <= right_player_location - `ONE;
         end
 
