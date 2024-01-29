@@ -65,7 +65,6 @@ module RightPlayer (
                             right_player_location <= right_player_location + 1;
                         end else begin
                             right_player_health <= right_player_health - 2;
-                            right_player_location <= right_player_location + 1;
                         end
                     end else if (left_player_input == `KICK) begin
                         if (right_player_input == `PUNCH) begin
@@ -74,7 +73,6 @@ module RightPlayer (
                             right_player_location <= right_player_location + 1;
                         end else begin
                             right_player_health <= right_player_health - 1;
-                            right_player_location <= right_player_location + 1;
                         end
                     end
                 end
@@ -84,7 +82,6 @@ module RightPlayer (
                             right_player_location <= right_player_location + 1;
                         end else begin
                             right_player_health <= right_player_health - 1;
-                            right_player_location <= right_player_location + 1;
                         end
                     end
                 end

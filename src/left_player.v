@@ -65,7 +65,6 @@ module LeftPlayer (
                             left_player_location <= left_player_location + 1;
                         end else begin
                             left_player_health <= left_player_health - 2;
-                            left_player_location <= left_player_location + 1;
                         end
                     end else if (right_player_input == `KICK) begin
                         if (left_player_input == `PUNCH) begin
@@ -74,7 +73,6 @@ module LeftPlayer (
                             left_player_location <= left_player_location + 1;
                         end else begin
                             left_player_health <= left_player_health - 1;
-                            left_player_location <= left_player_location + 1;
                         end
                     end
                 end
@@ -84,7 +82,6 @@ module LeftPlayer (
                             left_player_location <= left_player_location + 1;
                         end else begin
                             left_player_health <= left_player_health - 1;
-                            left_player_location <= left_player_location + 1;
                         end
                     end
                 end
