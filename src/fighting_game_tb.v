@@ -37,7 +37,7 @@ module FightingGame_tb();
 
 
     initial begin
-        clk = 0;
+        clk = 1;
         rst_n = 1;
         #1
         rst_n = 0;
@@ -49,8 +49,11 @@ module FightingGame_tb();
         $display("Starting simulation...");
         $monitor("Time: %t, Right player location: %d, Right player health: %d, Left player location: %d, Left player health: %d", $time, right_player_location_out, right_player_health_out, left_player_location_out, left_player_health_out);
 
+        #15
         // --------------- Sample inputs ----------------
-        #5
+        // left_player_input = `MOVE_RIGHT;
+        // right_player_input = `MOVE_LEFT;
+        // #DELAY
         // left_player_input = `MOVE_RIGHT;
         // right_player_input = `MOVE_LEFT;
         // #DELAY
@@ -59,6 +62,36 @@ module FightingGame_tb();
         // #DELAY
         // left_player_input = `PUNCH;
         // right_player_input = `PUNCH;
+        // #DELAY
+        // left_player_input = `PUNCH;
+        // right_player_input = `PUNCH;
+        // #DELAY
+        // left_player_input = `PUNCH;
+        // right_player_input = `PUNCH;
+        // #DELAY
+        // left_player_input = `PUNCH;
+        // right_player_input = `PUNCH;
+        // #DELAY
+        // left_player_input = `PUNCH;
+        // right_player_input = `PUNCH;
+        // #DELAY
+        // left_player_input = `PUNCH;
+        // right_player_input = `PUNCH;
+        // #DELAY
+        // left_player_input = `PUNCH;
+        // right_player_input = `PUNCH;
+        // #DELAY
+        // left_player_input = `PUNCH;
+        // right_player_input = `PUNCH;
+        // #DELAY
+
+        // --------------- TestBench inputs ----------------
+
+        // left_player_input = `MOVE_RIGHT;
+        // right_player_input = `MOVE_LEFT;
+        // #DELAY
+        // left_player_input = `MOVE_RIGHT;
+        // right_player_input = `MOVE_LEFT;
         // #DELAY
         // left_player_input = `KICK;
         // right_player_input = `MOVE_LEFT;
@@ -77,55 +110,56 @@ module FightingGame_tb();
         // #DELAY
         // left_player_input = `JUMP;
         // right_player_input = `PUNCH;
+        // #DELAY
 
         // --------------- TestBench inputs ----------------
-        left_player_input = `MOVE_RIGHT;
-        right_player_input = `MOVE_LEFT;
-        #DELAY
-        left_player_input = `MOVE_RIGHT;
-        right_player_input = `MOVE_LEFT;
-        #DELAY
-        left_player_input = `MOVE_LEFT;
-        right_player_input = `MOVE_RIGHT;
-        #DELAY
-        left_player_input = `MOVE_LEFT;
-        right_player_input = `MOVE_RIGHT;
-        #DELAY
+        // left_player_input = `MOVE_RIGHT;
+        // right_player_input = `MOVE_LEFT;
+        // #DELAY
+        // left_player_input = `MOVE_RIGHT;
+        // right_player_input = `MOVE_LEFT;
+        // #DELAY
+        // left_player_input = `MOVE_LEFT;
+        // right_player_input = `MOVE_RIGHT;
+        // #DELAY
+        // left_player_input = `MOVE_LEFT;
+        // right_player_input = `MOVE_LEFT;
+        // #DELAY
 
 
     //     // --------------- TestBench inputs ----------------
-    //     left_player_input = `MOVE_RIGHT;
-    //     right_player_input = `MOVE_LEFT;
-    //     #DELAY
-    //     left_player_input = `MOVE_RIGHT;
-    //     right_player_input = `MOVE_LEFT;
-    //     #DELAY
-    //     left_player_input = `PUNCH;
-    //     right_player_input = `JUMP;
-    //     #DELAY
-    //     left_player_input = `PUNCH;
-    //     right_player_input = `KICK;
-    //     #DELAY
-    //     left_player_input = `PUNCH;
-    //     right_player_input = `PUNCH;
-    //     #DELAY
-    //     left_player_input = `MOVE_RIGHT;
-    //     right_player_input = `WAIT;
-    //     #DELAY
-    //     left_player_input = `JUMP;
-    //     right_player_input = `WAIT;
-    //     #DELAY
-    //    left_player_input = `PUNCH;
-    //     right_player_input = `KICK;
-    //     #DELAY
-    //     left_player_input = `KICK;
-    //     right_player_input = `JUMP;
-    //     #DELAY
-    //     left_player_input = `MOVE_LEFT;
-    //     right_player_input = `KICK;
-    //     #DELAY
-    //     left_player_input = `KICK;
-    //     right_player_input = `MOVE_LEFT;
+        left_player_input = `MOVE_RIGHT;
+        right_player_input = `MOVE_LEFT;
+        #DELAY
+        left_player_input = `MOVE_RIGHT;
+        right_player_input = `MOVE_LEFT;
+        #DELAY
+        left_player_input = `PUNCH;
+        right_player_input = `JUMP;
+        #DELAY
+        left_player_input = `PUNCH;
+        right_player_input = `KICK;
+        #DELAY
+        left_player_input = `PUNCH;
+        right_player_input = `PUNCH;
+        #DELAY
+        left_player_input = `MOVE_RIGHT;
+        right_player_input = `WAIT;
+        #DELAY
+        left_player_input = `JUMP;
+        right_player_input = `WAIT;
+        #DELAY
+       left_player_input = `PUNCH;
+        right_player_input = `KICK;
+        #DELAY
+        left_player_input = `KICK;
+        right_player_input = `JUMP;
+        #DELAY
+        left_player_input = `MOVE_LEFT;
+        right_player_input = `KICK;
+        #DELAY
+        left_player_input = `KICK;
+        right_player_input = `MOVE_LEFT;
 
         #DELAY
         $finish; // End simulation

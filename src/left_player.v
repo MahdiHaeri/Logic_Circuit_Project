@@ -36,11 +36,7 @@ module LeftPlayer (
         end
     end
 
-    always @(left_player_location or right_player_location) begin
-        distance <= right_player_location + left_player_location;
-    end
-
-    always @(posedge clk or negedge rst_n) begin
+    always @(posedge clk) begin
         // apply movement input
         if (left_player_input == `MOVE_RIGHT && left_player_location != 0) begin
             left_player_location <= left_player_location - 1;
@@ -62,10 +58,9 @@ module LeftPlayer (
 
 
 
-        distance <= right_player_location + left_player_location;
         // check if the right player is hit
         if (left_player_input != `JUMP) begin  // If the left player is in the air, then the right player can't be hit
-            case (distance)
+            case (left_player_location + right_player_location)
                 0: begin
                     if (right_player_input == `PUNCH) begin
                         if (left_player_input == `PUNCH) begin
