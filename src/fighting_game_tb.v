@@ -1,10 +1,5 @@
 `include "fighting_game.v"
 
-`define ZERO     3'b000
-`define ONE      3'b001
-`define TWO      3'b010
-`define THREE    3'b011
-
 `define MOVE_RIGHT 6'b100000 
 `define MOVE_LEFT  6'b010000
 `define WAIT     6'b001000
@@ -115,5 +110,5 @@ module FightingGame_tb();
         $finish; // End simulation
     end
 
-    always #10 clk = ~clk; // Toggle clock every 5 time units
+    always #30 clk = ~clk; // Toggle clock every 5 time units
 endmodule
