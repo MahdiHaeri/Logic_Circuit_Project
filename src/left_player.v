@@ -24,24 +24,24 @@ module LeftPlayer (
 
     always @(posedge clk or negedge rst_n) begin
         if (~rst_n) begin
-            left_player_location <= 2;
-            left_player_health <= 3;
-            wait_counter <= 0;
+            left_player_location = 2;
+            left_player_health = 3;
+            wait_counter = 0;
 
-            left_player_location_out <= 2;
-            left_player_health_out <= 3;
+            left_player_location_out = 2;
+            left_player_health_out = 3;
         end else begin
-            left_player_location_out <= left_player_location;
-            left_player_health_out <= left_player_health;
+            left_player_location_out = left_player_location;
+            left_player_health_out = left_player_health;
         end
     end
 
     always @(posedge clk) begin
         // apply movement input
         if (left_player_input == `MOVE_RIGHT && left_player_location != 0) begin
-            left_player_location <= left_player_location - 1;
+            left_player_location = left_player_location - 1;
         end else if (left_player_input == `MOVE_LEFT && left_player_location != 2) begin
-            left_player_location <= left_player_location + 1;
+            left_player_location = left_player_location + 1;
         end
 
 
@@ -49,11 +49,11 @@ module LeftPlayer (
         // handle wait input
         if (left_player_input == `WAIT) begin
             if (wait_counter == 1) begin
-                left_player_health <= left_player_health + 1;
+                left_player_health = left_player_health + 1;
             end
-            wait_counter <= ~wait_counter; // Toggle wait_counter
+            wait_counter = ~wait_counter; // Toggle wait_counter
         end else begin
-            wait_counter <= 0; // Reset wait_counter if the input is not "wait"
+            wait_counter = 0; // Reset wait_counter if the input is not "wait"
         end
 
 
@@ -64,26 +64,26 @@ module LeftPlayer (
                 0: begin
                     if (right_player_input == `PUNCH) begin
                         if (left_player_input == `PUNCH) begin
-                            left_player_location <= left_player_location + 1;
+                            left_player_location = left_player_location + 1;
                         end else begin
-                            left_player_health <= left_player_health - 2;
+                            left_player_health = left_player_health - 2;
                         end
                     end else if (right_player_input == `KICK) begin
                         if (left_player_input == `PUNCH) begin
                             // Do nothing
                         end else if (left_player_input == `KICK) begin
-                            left_player_location <= left_player_location + 1;
+                            left_player_location = left_player_location + 1;
                         end else begin
-                            left_player_health <= left_player_health - 1;
+                            left_player_health = left_player_health - 1;
                         end
                     end
                 end
                 1: begin 
                     if (right_player_input == `KICK) begin
                         if (left_player_input == `KICK) begin 
-                            left_player_location <= left_player_location + 1;
+                            left_player_location = left_player_location + 1;
                         end else begin
-                            left_player_health <= left_player_health - 1;
+                            left_player_health = left_player_health - 1;
                         end
                     end
                 end

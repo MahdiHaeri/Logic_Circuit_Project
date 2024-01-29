@@ -87,30 +87,30 @@ module FightingGame_tb();
 
         // --------------- TestBench inputs ----------------
 
-        // left_player_input = `MOVE_RIGHT;
-        // right_player_input = `MOVE_LEFT;
-        // #DELAY
-        // left_player_input = `MOVE_RIGHT;
-        // right_player_input = `MOVE_LEFT;
-        // #DELAY
-        // left_player_input = `KICK;
-        // right_player_input = `MOVE_LEFT;
-        // #DELAY
-        // left_player_input = `MOVE_RIGHT;
-        // right_player_input = `PUNCH;
-        // #DELAY
-        // left_player_input = `WAIT;
-        // right_player_input = `WAIT;
-        // #DELAY
-        // left_player_input = `WAIT;
-        // right_player_input = `WAIT;
-        // #DELAY
-        // left_player_input = `PUNCH;
-        // right_player_input = `KICK;
-        // #DELAY
-        // left_player_input = `JUMP;
-        // right_player_input = `PUNCH;
-        // #DELAY
+        left_player_input = `MOVE_RIGHT;
+        right_player_input = `MOVE_LEFT;
+        #DELAY
+        left_player_input = `MOVE_RIGHT;
+        right_player_input = `MOVE_LEFT;
+        #DELAY
+        left_player_input = `KICK;
+        right_player_input = `MOVE_LEFT;
+        #DELAY
+        left_player_input = `MOVE_RIGHT;
+        right_player_input = `PUNCH;
+        #DELAY
+        left_player_input = `WAIT;
+        right_player_input = `WAIT;
+        #DELAY
+        left_player_input = `WAIT;
+        right_player_input = `WAIT;
+        #DELAY
+        left_player_input = `PUNCH;
+        right_player_input = `KICK;
+        #DELAY
+        left_player_input = `JUMP;
+        right_player_input = `PUNCH;
+        #DELAY
 
         // --------------- TestBench inputs ----------------
         // left_player_input = `MOVE_RIGHT;
@@ -128,38 +128,39 @@ module FightingGame_tb();
 
 
     //     // --------------- TestBench inputs ----------------
-        left_player_input = `MOVE_RIGHT;
-        right_player_input = `MOVE_LEFT;
-        #DELAY
-        left_player_input = `MOVE_RIGHT;
-        right_player_input = `MOVE_LEFT;
-        #DELAY
-        left_player_input = `PUNCH;
-        right_player_input = `JUMP;
-        #DELAY
-        left_player_input = `PUNCH;
-        right_player_input = `KICK;
-        #DELAY
-        left_player_input = `PUNCH;
-        right_player_input = `PUNCH;
-        #DELAY
-        left_player_input = `MOVE_RIGHT;
-        right_player_input = `WAIT;
-        #DELAY
-        left_player_input = `JUMP;
-        right_player_input = `WAIT;
-        #DELAY
-       left_player_input = `PUNCH;
-        right_player_input = `KICK;
-        #DELAY
-        left_player_input = `KICK;
-        right_player_input = `JUMP;
-        #DELAY
-        left_player_input = `MOVE_LEFT;
-        right_player_input = `KICK;
-        #DELAY
-        left_player_input = `KICK;
-        right_player_input = `MOVE_LEFT;
+    //     left_player_input = `MOVE_RIGHT;
+    //     right_player_input = `MOVE_LEFT;
+    //     #DELAY
+    //     left_player_input = `MOVE_RIGHT;
+    //     right_player_input = `MOVE_LEFT;
+    //     #DELAY
+    //     left_player_input = `PUNCH;
+    //     right_player_input = `JUMP;
+    //     #DELAY
+    //     left_player_input = `PUNCH;
+    //     right_player_input = `KICK;
+    //     #DELAY
+    //     left_player_input = `PUNCH;
+    //     right_player_input = `PUNCH;
+    //     #DELAY
+    //     left_player_input = `MOVE_RIGHT;
+    //     right_player_input = `WAIT;
+    //     #DELAY
+    //     left_player_input = `JUMP;
+    //     right_player_input = `WAIT;
+    //     #DELAY
+    //    left_player_input = `PUNCH;
+    //     right_player_input = `KICK;
+    //     #DELAY
+    //     left_player_input = `KICK;
+    //     right_player_input = `JUMP;
+    //     #DELAY
+    //     left_player_input = `MOVE_LEFT;
+    //     right_player_input = `KICK;
+    //     #DELAY
+    //     left_player_input = `KICK;
+    //     right_player_input = `MOVE_LEFT;
+    //     #DELAY
 
         #DELAY
         $finish; // End simulation

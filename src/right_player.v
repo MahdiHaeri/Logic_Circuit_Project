@@ -23,24 +23,24 @@ module RightPlayer (
 
     always @(posedge clk or negedge rst_n) begin
         if (~rst_n) begin
-            right_player_location <= 2;
-            right_player_health <= 3;
-            wait_counter <= 0;
+            right_player_location = 2;
+            right_player_health = 3;
+            wait_counter = 0;
 
-            right_player_location_out <= 2;
-            right_player_health_out <= 3;
+            right_player_location_out = 2;
+            right_player_health_out = 3;
         end else begin
-            right_player_location_out <= right_player_location;
-            right_player_health_out <= right_player_health;
+            right_player_location_out = right_player_location;
+            right_player_health_out = right_player_health;
         end
     end
 
     always @(posedge clk) begin
         // apply movement input
         if (right_player_input == `MOVE_RIGHT && right_player_location != 2) begin
-            right_player_location <= right_player_location + 1;
+            right_player_location = right_player_location + 1;
         end else if (right_player_input == `MOVE_LEFT && right_player_location != 0) begin
-            right_player_location <= right_player_location - 1;
+            right_player_location = right_player_location - 1;
         end
 
 
@@ -48,11 +48,11 @@ module RightPlayer (
         // handle wait input
         if (right_player_input == `WAIT) begin
             if (wait_counter == 1) begin
-                right_player_health <= right_player_health + 1;
+                right_player_health = right_player_health + 1;
             end
-            wait_counter <= ~wait_counter; // Toggle wait_counter
+            wait_counter = ~wait_counter; // Toggle wait_counter
         end else begin
-            wait_counter <= 0; // Reset wait_counter if the input is not "wait"
+            wait_counter = 0; // Reset wait_counter if the input is not "wait"
         end
 
 
@@ -64,26 +64,26 @@ module RightPlayer (
                     if (left_player_input == `PUNCH) begin
                         $display("Right player is hit!");
                         if (right_player_input == `PUNCH) begin
-                            right_player_location <= right_player_location + 1;
+                            right_player_location = right_player_location + 1;
                         end else begin
-                            right_player_health <= right_player_health - 2;
+                            right_player_health = right_player_health - 2;
                         end
                     end else if (left_player_input == `KICK) begin
                         if (right_player_input == `PUNCH) begin
                             // Do nothing
                         end else if (right_player_input == `KICK) begin
-                            right_player_location <= right_player_location + 1;
+                            right_player_location = right_player_location + 1;
                         end else begin
-                            right_player_health <= right_player_health - 1;
+                            right_player_health = right_player_health - 1;
                         end
                     end
                 end
                 1: begin 
                     if (left_player_input == `KICK) begin
                         if (right_player_input == `KICK) begin 
-                            right_player_location <= right_player_location + 1;
+                            right_player_location = right_player_location + 1;
                         end else begin
-                            right_player_health <= right_player_health - 1;
+                            right_player_health = right_player_health - 1;
                         end
                     end
                 end
