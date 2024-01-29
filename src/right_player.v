@@ -6,17 +6,17 @@
 `define PUNCH    6'b000001
 
 module RightPlayer (
-    input clk,
-    input rst_n,
-    input [5:0] right_player_input,
-    input [5:0] left_player_input,
-    input [1:0] left_player_location,
-    output reg [1:0] right_player_location_out, // Present state
-    output reg [1:0] right_player_health_out  // Present state
+    input wire clk,
+    input wire rst_n,
+    input wire [5:0] right_player_input,
+    input wire [5:0] left_player_input,
+    input wire [2:0] left_player_location,
+    output reg [2:0] right_player_location_out, // Present state
+    output reg [2:0] right_player_health_out  // Present state
 );
 
-    reg [1:0] right_player_location;
-    reg [1:0] right_player_health;
+    reg [2:0] right_player_location;
+    reg [2:0] right_player_health;
 
     reg [2:0] distance;
     reg wait_counter;
@@ -32,7 +32,9 @@ module RightPlayer (
         end
     end
 
-
+    always @(left_player_location or right_player_location) begin
+        distance <= right_player_location + left_player_location;
+    end
     always @(posedge clk or negedge rst_n) begin
         // apply movement input
         if (right_player_input == `MOVE_RIGHT && right_player_location != 2) begin
@@ -55,7 +57,6 @@ module RightPlayer (
 
 
 
-        distance <= right_player_location + left_player_location;
         // check if the right player is hit
         if (right_player_input != `JUMP) begin  // If the left player is in the air, then the right player can't be hit
             case (distance)

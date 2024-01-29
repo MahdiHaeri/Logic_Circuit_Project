@@ -6,17 +6,17 @@
 `define PUNCH    6'b000001
 
 module LeftPlayer (
-    input clk,
-    input rst_n,
-    input [5:0] right_player_input,
-    input [5:0] left_player_input,
-    input [1:0] right_player_location,
-    output reg [1:0] left_player_location_out, // Present state
-    output reg [1:0] left_player_health_out  // Present state
+    input wire clk,
+    input wire rst_n,
+    input wire [5:0] right_player_input,
+    input wire [5:0] left_player_input,
+    input wire [2:0] right_player_location,
+    output reg [2:0] left_player_location_out, // Present state
+    output reg [2:0] left_player_health_out  // Present state
 );
 
-    reg [1:0] left_player_location;
-    reg [1:0] left_player_health;
+    reg [2:0] left_player_location;
+    reg [2:0] left_player_health;
 
     reg [2:0] distance;
     reg wait_counter;
