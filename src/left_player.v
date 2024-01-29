@@ -27,10 +27,17 @@ module LeftPlayer (
             left_player_location <= 2;
             left_player_health <= 3;
             wait_counter <= 0;
+
+            left_player_location_out <= 2;
+            left_player_health_out <= 3;
         end else begin
             left_player_location_out <= left_player_location;
             left_player_health_out <= left_player_health;
         end
+    end
+
+    always @(left_player_location or right_player_location) begin
+        distance <= right_player_location + left_player_location;
     end
 
     always @(posedge clk or negedge rst_n) begin

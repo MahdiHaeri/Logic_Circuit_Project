@@ -26,6 +26,9 @@ module RightPlayer (
             right_player_location <= 2;
             right_player_health <= 3;
             wait_counter <= 0;
+
+            right_player_location_out <= 2;
+            right_player_health_out <= 3;
         end else begin
             right_player_location_out <= right_player_location;
             right_player_health_out <= right_player_health;
@@ -35,6 +38,7 @@ module RightPlayer (
     always @(left_player_location or right_player_location) begin
         distance <= right_player_location + left_player_location;
     end
+
     always @(posedge clk or negedge rst_n) begin
         // apply movement input
         if (right_player_input == `MOVE_RIGHT && right_player_location != 2) begin
@@ -62,6 +66,7 @@ module RightPlayer (
             case (distance)
                 0: begin
                     if (left_player_input == `PUNCH) begin
+                        $display("Right player is hit!");
                         if (right_player_input == `PUNCH) begin
                             right_player_location <= right_player_location + 1;
                         end else begin
